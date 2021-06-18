@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>JToH Acronym Checker</title>
+  <link rel="stylesheet" type="text/css" href="../css/jtoh-acronym-checker.css">
+</head>
+<body>
+  <div id="header">
+    <h1 id="title">JToH Acronym Checker</h1>
+    <p id="subtitle">Check for existing tower acronyms or generate your own!</p>
+  </div>
+  <hr class="vline">
+  <div id="content">
+    <div id="left">
+      <h1>Check acronym availability</h1>
+      <div id="acronym-check">
+        <h1>Tower of...</h1>
+        <input id="acronym" type="text" maxlength=37 />
+        <button id="acronym-find" type="button">Check</button>
+        <p id="acronym-taken">Sorry, [insert acronym here] is already taken!</p>
+      </div>
+    </div>
+    <div id="right">
+      <h1>Generate tower acronym</h1>
+      <input id="acronym-generate" type="text" readonly name="acronym-generate" value="[placeholder]"/>
+      <p>Length: </p>
+      <input id="acronym-length" type="number" min=1 max=8 name="" value="2">
+      <button id="acronym-create" type="button">Generate</button>
+      <h4 id="note"><i>NOTE: It only generates available acronyms!</i></h4>
+    </div>
+  </div>
+  <footer>
+    <p>made by KrizisDev (Krizis#0742)</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/jtoh-acronym-checker.js"></script>
+</body>
