@@ -14,7 +14,8 @@ let acronymList = [
   "B", "SA", "GLA", "TA", "UD", "DaC", "SaS", "PF", "TT", "EE", "AZ", "GD", "O", "DT",                      // Zone 2
   "IA", // Arcane Area
   "SFU", "OD", "BB", "COF", "CCC", "X", "MA", "DH", "RCH", "CaS", "IO", "MC", "QC", "CaUP", "HH",           // Zone 3
-  "FSC", "AC", "UID", "FaST", "OSE", "WW", "ET", "PC", "MIM", "FG", "SS", "DDD", "TV", "IF", "AAA"          // Zone 4
+  "FSC", "AC", "UID", "FaST", "OSE", "WW", "ET", "PC", "MIM", "FG", "SS", "DDD", "TV", "IF", "AAA",         // Zone 4
+  "AH", "HCF", "YM", "RP", "UA", "HG", "DB"                                                                 // Event Towers (excluding Baldi Tower)
 ]
 
 $("#acronym-taken").hide();
