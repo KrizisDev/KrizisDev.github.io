@@ -12,7 +12,7 @@ let acronymList = [
   "GO", "QT", "BBB", "PP", "BT", "HA", "FaCT", "CA", "BK", "NS", "AM", "CR", "CP",                          // Ring 9
   "AB", "PHaT", "AD", "HS", "P", "MH", "CO", "YS", "WEL", "AV", "UT", "RNI", "ED", "Z", "TL",               // Zone 1
   "B", "SA", "GLA", "TA", "UD", "DaC", "SaS", "PF", "TT", "EE", "AZ", "GD", "O", "DT",                      // Zone 2
-  "IA", // Arcane Area
+  "IA",                                                                                                     // Arcane Area
   "SFU", "OD", "BB", "COF", "CCC", "X", "MA", "DH", "RCH", "CaS", "IO", "MC", "QC", "CaUP", "HH",           // Zone 3
   "FSC", "AC", "UID", "FaST", "OSE", "WW", "ET", "PC", "MIM", "FG", "SS", "DDD", "TV", "IF", "AAA",         // Zone 4
   "AH", "HCF", "YM", "RP", "UA", "HG", "DB"                                                                 // Event Towers (excluding Baldi Tower)
