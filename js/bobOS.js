@@ -250,7 +250,7 @@ $(document).ready(function() {
             break;
 
             case "booby":
-              downloadFile("https://www.youtube.com/watch?v=zvHJXocDnD4");
+              window.location.href = "https://www.youtube.com/watch?v=zvHJXocDnD4";
             break;
           }
         }
