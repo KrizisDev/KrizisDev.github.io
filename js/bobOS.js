@@ -251,6 +251,14 @@ $(document).ready(function() {
           }
         }
       break;
+
+      case "goodbye":
+        switch(words[1]) {
+          case "bobby":
+            alert("[todo: code the \"goodbye bobby\" sequence]")
+          break;
+        }
+      break;
     }
 
     if (zrroARG) {
@@ -282,7 +290,7 @@ $(document).ready(function() {
           helloInterval = setInterval(helloRandomize, 70);
           sounds.enter.play();
           setTimeout(function() {
-            alert("[insert zip file here]");
+            alert("[todo: download the \"bobby.zip\" file]");
           }, 2250)
         }
       }, 1)
