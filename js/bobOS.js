@@ -248,6 +248,10 @@ $(document).ready(function() {
                 zrroARG = true;
               }, 10);
             break;
+
+            case "booby":
+              downloadFile("https://www.youtube.com/watch?v=zvHJXocDnD4");
+            break;
           }
         }
       break;
