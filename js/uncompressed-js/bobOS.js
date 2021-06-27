@@ -382,7 +382,7 @@ $(document).ready(function() {
         setTimeout(function() {
           text = $("#textbox").val();
           text.toLowerCase();
-          if (saidHello == false && text == "hello bobby") {
+          if (saidHello == false && text.match(/hello bobby/i)) {
             saidHello = true;
             forceFocus = false;
             $("#textbox").prop("disabled", true);
