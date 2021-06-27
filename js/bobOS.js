@@ -4,11 +4,27 @@ $(document).ready(function() {
   zrroARG = false,
   saidHello = false,
   saidGoodbye = false,
+  helloInterval = undefined,
+  helloHistoryInterval = undefined,
   helloWords = [
     "HELLO", "BOBBY"
   ],
-  helloInterval = undefined,
-  helloHistoryInterval = undefined;
+  goodbyeWords = [
+    ["&nbsp;", "THIS", "IS", "THE", "STORY", "OF<br>",
+    "&nbsp;", "SOMEONE", "WHO", "DECIDED<br>",
+    "&nbsp;", "TO", "DOWNLOAD", "\"BOBBY.ZIP\".<br>", "&nbsp;"],
+    ["<br>&nbsp;", "ONE", "DAY", "THERE", "WAS<br>",
+    "&nbsp;", "SOMEONE", "WHO", "OPENED<br>",
+    "&nbsp;", "\"bobOS.html\".<br>", "&nbsp;"],
+    ["<br>&nbsp;", "ONE", "DAY", "THEY", "TYPED", "IN<br>", "&nbsp;"],
+    ["&nbsp;<br>", "&nbsp;", "AND<br>", "&nbsp;", "THEN...<br>", "&nbsp;<br>", "&nbsp;<br>", "&nbsp;<br>"]
+  ],
+  goodbyeArray = 0,
+  goodbyeIndex = 0;
+
+  setTimeout(function() {
+    $("#textbox").val("");
+  }, 50);
 
   // sound array
   var sounds = {
@@ -35,27 +51,46 @@ $(document).ready(function() {
     })
   }
 
-  // download function
-  function downloadFile(filePath){
-      var link=document.createElement('a');
-      link.target = "_parent";
-      link.href = filePath;
-      link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-      link.click();
-  }
+  // redirect function
+  function urlRedirect(url){
+    var X = setTimeout(function(){
+        window.location.replace(url);
+        return true;
+    },300);
 
+    if( window.location = url ){
+        clearTimeout(X);
+        return true;
+    } else {
+        if( window.location.href = url ){
+            clearTimeout(X);
+            return true;
+        }else{
+            clearTimeout(X);
+            window.location.replace(url);
+            return true;
+        }
+    }
+    return false;
+};
   // flicker the whole page
   setInterval(function() {
     $("body").css("opacity", (Math.random() * (1 - 0.85) + 0.85).toString());
   }, 50);
 
   // prevent special characters
-  $("#textbox").keydown(function() {
+  $("#textbox").keydown(function(e) {
     setTimeout(function() {
       var raw_text = $("#textbox").val();
       var return_text = raw_text.replace(/[^a-zA-Z0-9 ]/g, "");
       $("#textbox").val(return_text);
     }, 10);
+    if (saidGoodbye == true) {
+      e.preventDefault();
+      if (e.which == 13) {
+        checkCommand();
+      }
+    }
   });
 
   // keep focus on the textbox
@@ -75,14 +110,12 @@ $(document).ready(function() {
 
   // redirect to hello penguin page once sound stops playing
   sounds.hello.on("end", function() {
-    window.open("https://hellopengu.in", "_blank");
-  })
+    urlRedirect("https://hellopengu.in");
+  });
 
   // commands
   function checkCommand() {
-    $("#history").append("<p>> "+commandText+"</p>");
-
-    var words = commandText.toLowerCase().split(" ");
+    var words = $("#textbox").val().toLowerCase().split(" ");
     var str = "";
 
     switch(words[0]) {
@@ -95,17 +128,19 @@ $(document).ready(function() {
       break;
 
       case "clear":
-        $("#history").contents().each(function() {
-          if(this.nodeType === Node.COMMENT_NODE) {
-            // don't do anything
-          } else {
-            $(this).remove();
-          }
-        });
+        setTimeout(function() {
+          $("#history").contents().each(function() {
+            if(this.nodeType === Node.COMMENT_NODE) {
+              // don't do anything
+            } else {
+              $(this).remove();
+            }
+          });
+        }, 2);
       break;
 
       case "exit":
-        window.location.href = "https://krizisdev.github.io";
+        urlRedirect("https://krizisdev.github.io");
       break;
 
       case "y":
@@ -177,7 +212,7 @@ $(document).ready(function() {
             break;
 
             case "gavin":
-              str = "<a href='https://cdn.discordapp.com/attachments/843595946579591218/856245025942929448/crack.zip' download>[DOWNLOAD CRACK.ZIP]</a>";
+              str = "<a href='https://cdn.discordapp.com/attachments/843595946579591218/856245025942929448/crack.zip' download>[ DOWNLOAD CRACK.ZIP ]</a>";
             break;
 
             case "zrro":
@@ -250,7 +285,11 @@ $(document).ready(function() {
             break;
 
             case "booby":
-              window.location.href = "https://www.youtube.com/watch?v=zvHJXocDnD4";
+              urlRedirect("https://www.youtube.com/watch?v=zvHJXocDnD4");
+            break;
+
+            case "mario":
+              str = "[ Mario has logged in. ]";
             break;
           }
         }
@@ -259,45 +298,102 @@ $(document).ready(function() {
       case "goodbye":
         switch(words[1]) {
           case "bobby":
-            alert("[todo: code the \"goodbye bobby\" sequence]")
+            if (zrroARG == false && goodbyeArray != 4) {
+              saidGoodbye = true;
+              forceFocus = false;
+              $("#textbox").prop("disabled", true);
+
+              setTimeout(function() {
+                str = words.join(" ").toUpperCase();
+                $("#textbox").val(str);
+              }, 1);
+
+              var goodbyeStr = "";
+              var timer = (goodbyeArray == 3 ? 2000 : 500);
+
+              setTimeout(function goodbyeFunction() {
+                goodbyeStr = goodbyeWords[goodbyeArray][goodbyeIndex];
+                $("#history").append(goodbyeStr+" ");
+                goodbyeIndex ++;
+
+                sounds.err.play();
+
+                if (goodbyeIndex != goodbyeWords[goodbyeArray].length) {
+                  setTimeout(goodbyeFunction, Math.floor(Math.random() * (800 - 400) + 400));
+                } else {
+                  setTimeout(function() {
+                    goodbyeArray ++;
+                    goodbyeIndex = 0;
+                    forceFocus = true;
+                    $("#textbox").prop("disabled", false).focus();
+                  }, 500);
+                }
+              }, timer);
+            }
           break;
         }
       break;
     }
 
-    if (zrroARG) {
-      $("#history").append("<p style='color: red'>Pick an option. (y/n)</p>")
-    } else {
-      $("#history").append("<p>"+str+"</p>");
-    }
+    setTimeout(function() {
+      if (saidGoodbye == false) {
+        $("#history").append("<p>> "+commandText+"</p>");
+      } else if(goodbyeArray == 3) {
+        sounds.doom.play();
+        $("#textbox").val("");
+        $("#history").append("<p id='goodbye'>> "+commandText.toUpperCase()+"</p>");
+      } else if(goodbyeArray == 4) {
+        forceFocus = false;
+        $("#textbox").prop("disabled", true);
+        sounds.goodbye.play();
+        setTimeout(function() {
+          urlRedirect("../html/gone.html");
+        }, 1800);
+      }
+    }, 1);
+
+    setTimeout(function() {
+      if (zrroARG) {
+        $("#history").append("<p style='color: red'>Pick an option. (y/n)</p>")
+      } else if (saidGoodbye == false) {
+        $("#history").append("<p>"+str+"</p>");
+      }
+    }, 2);
   }
 
   // textbox thingamajik whatever
-  $("#textbox").keypress(function() {
+  $("#textbox").keypress(function(e) {
     var key = (event.keyCode ? event.keyCode : event.which);
     if (key == "13") {
-      setTimeout(function() {
-        commandText = $("#textbox").val();
-        checkCommand();
-        $("#textbox").val("");
-      }, 1);
+      if (saidGoodbye == false) {
+        setTimeout(function() {
+          commandText = $("#textbox").val();
+          checkCommand();
+          $("#textbox").val("");
+        }, 1);
+      }
     } else {
-      sounds.blip.play();
-      setTimeout(function() {
-        text = $("#textbox").val();
-        text.toLowerCase();
-        if (saidHello == false && text == "hello bobby") {
-          saidHello = true;
-          forceFocus = false;
-          $("#textbox").prop("disabled", true);
-          helloRandomize();
-          helloInterval = setInterval(helloRandomize, 70);
-          sounds.enter.play();
-          setTimeout(function() {
-            alert("[todo: download the \"bobby.zip\" file]");
-          }, 2250)
-        }
-      }, 1)
+      if (saidGoodbye == false) {
+        sounds.blip.play();
+        setTimeout(function() {
+          text = $("#textbox").val();
+          text.toLowerCase();
+          if (saidHello == false && text == "hello bobby") {
+            saidHello = true;
+            forceFocus = false;
+            $("#textbox").prop("disabled", true);
+            helloRandomize();
+            helloInterval = setInterval(helloRandomize, 70);
+            sounds.enter.play();
+            setTimeout(function() {
+              urlRedirect("https://cdn.discordapp.com/attachments/858652063483428874/858652564093665280/bobby.zip");
+              setTimeout(function() {
+                urlRedirect("https://krizisdev.github.io");
+              }, 1000);
+            }, 2250)
+          }
+        }, 1)
+      }
     }
   });
 

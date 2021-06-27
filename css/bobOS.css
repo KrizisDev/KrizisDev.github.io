@@ -72,6 +72,10 @@ img {
   color: green;
 }
 
+#goodbye {
+  color: magenta;
+}
+
 .input-arrow {
 	position: fixed;
 	bottom: 2%;

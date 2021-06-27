@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html style="height: 100%;">
   <head>
-    <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+    <meta charset="utf-8">
     <title>gone.png (385x385)</title>
+    <link rel="preload" as="image" href="../img/gone/unrealityGif.webm">
+    <link rel="preload" as="image" href="../img/gone/unrealityBG.webm">
+    <link rel="stylesheet" href="../css/gone.css">
   </head>
-  <body style="margin: 0px; background: #0e0e0e; width: 100%; height: 100%">
-    <img style="-webkit-user-select: none; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: hsl(0, 0%, 90%); transition: background-color 300ms;" src="../img/bobOS/gone.png">
+  <body style="margin: 0px; background: #0e0e0e; height: 100%">
+    <img class="unreality" style="-webkit-user-select: none; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: hsl(0, 0%, 90%); transition: background-color 300ms;" src="../img/gone/gone.png">
+    <video class="unrealityGif" style="-webkit-user-select: none; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: hsl(0, 0%, 90%); transition: background-color 300ms; z-index: -99" autoplay muted loop>
+      <source src="../img/gone/unrealityGif.webm">
+    </video>
+    <video class="unrealityBG" style="position: absolute; width: 100%; height: 100%; z-index: -100" autoplay muted loop>
+      <source src="../img/gone/unrealityBG.webm">
+    </video>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool/disable-devtool.min.js"></script>
+    <script src="../js/howler.core.js"></script>
     <script src="../js/gone.js"></script>
   </body>
 </html>
