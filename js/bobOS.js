@@ -254,7 +254,7 @@ $(document).ready(function() {
               You're missing out on being a top 50 canadian osu! player.\
               <br><br>\
               Keep your game. <br>\
-              <img style='margin-top: 8px;'src='../img/bobOS/skippy.png'></p>";
+              <img style='margin-top: 1vw; height: 18vw;' src='../img/bobOS/skippy.png'></p>";
             break;
 
             case "extra":
@@ -273,6 +273,10 @@ $(document).ready(function() {
               str = "<a style='color: red'>[DATA EXPUNGED]</a>";
             break;
 
+            case "pinky":
+              str = "<p style='font-size: 1.6vw'>Ever since I was a child I was cast out for making ape sounds. \"Stop that!\" my mother said, \"WeirdChamp\" the kids said. I never felt like I had a home. Nowhere was safe for me to just make monkey sounds. Desperate, I took a trip to the tropical regions of panama, where the tribes of panama apes reside. I walked up to their clan and began hollering the most beautiful monkey sounds I could. I screamed OOAA's into the sky and beat my chest with pride. Alas, even the apes would not accept me. Dejected, I returned home. I decided to pursue other interests. I tried joining the space force, but they didn't let me bring bananas into space. I tried to become a banker, but customers didn't like when I pissed on their money and made sensual monkey grunts. I tried to become a chemist, but monkey piss is not an acceptable ingredient when trying to make solvents. As my final attempt I went into math, but triangles didn't make any sense with my monkey brain. All I knew was banana. Until one day, when the greatest skyblock player ever, polytrix, invited me to their guild, <a style='color: magenta'>Flexing Chimps</a>. Alas, I had found my home. Like minded monkeys who I could banana and grunt with. I've learned a lot in my years with them. My past experiences scared me, so I learned to reject chemists, specifically <a style='color: magenta'>Trouble Brewing</a>, by criticizing their guild members with dignity, like by calling them b***es, then pissing on their skill average. I have shunned bankers, for they do not see the grace in having a fat on a crisp dollar bill, which led to my hate in <a style='color: magenta'>Money Moves</a> members. Tringles remained the bane of my monkey brain, so I naturally rejected Triades, and led many hunts with great people like Dogify and w1q against them. I was taught and I teached, I rose and I fell, but I found my home in FC. Finally I was accepted. A great guild with great monkeys, just pissing and ting everywhere, what more could a man want? I'll stick with my monkeys until the day I die because ITS FC ON TOP OO AA OO AA<br>\
+              <img style='margin-top: 1vw; height: 16vw;' src='../img/bobOS/pinky.png'></p>"
+            break;
             case "arg":
               str = "The following entry has been classified <br>\
               <a style='color: red; font-size: 4vw'>[TOP SECRET]</a> <br>\
