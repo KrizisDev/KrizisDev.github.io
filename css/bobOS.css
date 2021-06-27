@@ -75,6 +75,7 @@ img {
 	font-size: 3vw;
 	color: lightgreen;
 	background: transparent;
+  z-index: 5;
 }
 
 .input-arrow #textbox {
