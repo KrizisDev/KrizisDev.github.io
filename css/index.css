@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+
+body {
+  background: #111;
+}
+
+#title {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 8px;
+  line-height: 16px;
+  font-family: 'Quantico';
+  font-weight: 100;
+  text-align: center;
+  color: lightgreen;
+  background: linear-gradient(180deg, #000, #222);
+  border-bottom: 8px solid lightgreen;
+  box-shadow: 0px -4px 48px black;
+}
+
+#title h1:nth-child(1) {
+  font-size: 4em;
+}
+
+#title h1:nth-child(2) {
+  font-size: 1.2em;
+}
+
+#title .text {
+  content: "";
+  filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 1));
+}
+
+#container {
+	position: relative;
+	top: 180px;
+	color: lightgreen;
+	text-align: center;
+}

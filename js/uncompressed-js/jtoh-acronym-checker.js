@@ -12,10 +12,12 @@ $(document).ready(function() {
     "SSS", "NBA", "VA", "AA", "ITI", "III", "US", "MT", "VE", "SO", "EI", "GF",                               // Ring 8
     "GO", "QT", "BBB", "PP", "BT", "HA", "FaCT", "CA", "BK", "NS", "AM", "CR", "CP",                          // Ring 9
     "AB", "PHaT", "AD", "HS", "P", "MH", "CO", "YS", "WEL", "AV", "UT", "RNI", "ED", "Z", "TL",               // Zone 1
+		"CI", "TTT",                                                                                              // Paradise Atoll
     "B", "SA", "GLA", "TA", "UD", "DaC", "SaS", "PF", "TT", "EE", "AZ", "GD", "O", "DT",                      // Zone 2
     "IA",                                                                                                     // Arcane Area
     "SFU", "OD", "BB", "COF", "CCC", "X", "MA", "DH", "RCH", "CaS", "IO", "MC", "QC", "CaUP", "HH",           // Zone 3
     "FSC", "AC", "UID", "FaST", "OSE", "WW", "ET", "PC", "MIM", "FG", "SS", "DDD", "TV", "IF", "AAA",         // Zone 4
+		"ST", "SSSS", "BS", "FV", "StS", "UE", "HK", "GT", "AO", "HE", "BaBT", "ZA", "PZ", "AR",                  // Zone 5
     "AH", "HCF", "YM", "RP", "UA", "HG", "DB"                                                                 // Event Towers (excluding Baldi Tower)
   ]
 
